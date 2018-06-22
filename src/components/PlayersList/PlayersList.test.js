@@ -44,3 +44,22 @@ it('should call onScoreUpdate withot crashing', () => {
 	expect(mockedOnScoreUpdate).toBeCalledWith(0, 10);
 
 });
+
+it('should call onPlayerRemove without crashing', () => {
+  const players = [
+    {
+        name: 'Kunegunda',
+        score: 5
+    },
+    {
+        name: 'Antoś',
+        score: 0
+    }
+  ]
+  const mockedonPlayerRemove = jest.fn();
+  const playerComponent = shallow(<PlayersList players={players} onPlayerRemove={mockedonPlayerRemove} />);
+  const firstPlayer = playerComponent.find(Player).first();
+  const onPlayerRemove = firstPlayer.prop('onPlayerRemove');
+  onPlayerRemove();
+  expect(mockedonPlayerRemove).toBeCalled();  
+});

@@ -10,19 +10,10 @@ class App extends Component {
 
    this.state = {
      players: []
-   }
- }
-    onPlayerAdd = (playerName) => {
-      const newPlayer = {
-        name: playerName,
-        score: 0,
-      }
-      this.setState({
-        players: [...this.state.players, newPlayer]
-      })
     }
+  }
 
-   onScoreUpdate = (playerIndex, scoreChange) => {
+  onScoreUpdate = (playerIndex, scoreChange) => {
     this.setState({
       players: this.state.players.map((player, index) => {
         if (index === playerIndex) {
@@ -30,6 +21,24 @@ class App extends Component {
         }
         return player;
       })
+    })
+  }
+  
+  onPlayerAdd = (playerName) => {
+    const newPlayer = {
+      name: playerName,
+      score: 0,
+    }
+    this.setState({
+      players: [...this.state.players, newPlayer]
+    })
+  }
+
+    onPlayerRemove = (i) => {
+    const newPlayers = this.state.players.filter(player => player.name !== this.state.players[i].name);
+    let sort = newPlayers.sort(this.compare);
+    this.setState({
+      players: sort
     })
   }
 
