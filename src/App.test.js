@@ -40,7 +40,7 @@ it('should add new player', () => {
 });
 
 it('should delete player', () => {
-  const app = shallow(<App />);
+  const appComponent = shallow(<App />);
   const players = [
     {
       name: 'Kunegunda',
@@ -51,9 +51,9 @@ it('should delete player', () => {
       score: 0,
     }
   ];
-  app.setState({ players });
-  const onPlayerRemove = app.find(PlayersList).prop('onPlayerRemove');
+  appComponent.setState({ players });
+  const onPlayerRemove = appComponent.find(PlayersList).prop('onPlayerRemove');
   onPlayerRemove(0);
-  const playersAfterUpdate = app.state('players');
+  const playersAfterUpdate = appComponent.state('players');
   expect(playersAfterUpdate[0].name).toEqual('Antoś');
 });

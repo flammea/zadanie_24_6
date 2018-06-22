@@ -1,5 +1,5 @@
 li {
-	width: 300px;
+	width: 400px;
 	padding: 5px 0;
 	list-style: none;
 	height: 30px;
@@ -31,6 +31,7 @@ li:nth-child(1) {
 	background: #FFFFCC;
 	cursor: pointer;
 	font-size: 13px;
+	color: black;
 }
 
 .Player__score {
@@ -41,16 +42,18 @@ li:nth-child(1) {
 	border: 1px solid #000;
 	text-align: center;
 	margin: -6px 5px 0;
-	background: rgb(255, 72, 0);
+	background: green;
 	line-height: 30px;
 	font-size: 28px;
+	color: white;
 }
 
 .Player__button:first-child {
 	float: left;
 	border-radius: 50%;
 	margin-right: 15px;
-	background: #4cd137;
+	background: red;
+	color: white;
 }
 
 .Player__button:last-child {
@@ -59,4 +62,6 @@ li:nth-child(1) {
 
 .Player__name {
 	font-weight: 700;
+	text-transform: uppercase;
+	color: white;
 }
